@@ -1,0 +1,5 @@
+	@import "../ColVis/ColVis.css";
+	.ColVis {
+		float: left;
+		margin-bottom: 0
+	}

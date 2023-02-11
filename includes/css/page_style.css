@@ -1,0 +1,188 @@
+ 
+a:link { 
+	color: 3300FF;
+	}
+a:visited { 
+	color: 3300FF;
+	}
+
+address {
+	margin-top: 0.5em;
+	padding-top: 0.5em; 
+	border-top: thin dotted;
+	} 
+	
+body {
+	background-image:url(''); 
+	font-family: Arial; 
+	font-size: 10px;
+	color:#000;
+	background:#f9f9f9;
+	}
+table {
+	font-family: Arial;
+	font-size: 12px;
+	}
+input,textarea,select{
+	background-color: white; 
+	font-family: Arial;
+	font-size: 12px;
+	}
+
+/* to set sub menu  */
+.submenu {
+	text-align: center; 
+	background-color: #FF9933;
+	font-weight: bold; 
+	font-size: 14px;
+	}
+/* to set add/edit screen  */
+.tableluar{
+	border-collapse:collapse; border:1px solid #a6723d;
+	}
+.tablerow01{
+	color: yellow; background-color: #165367; font-weight: bold; font-size: 12px; text-decoration:underline;
+	} 
+.tablerow02{
+	color: white; background-color: #165367; font-weight: bold; font-size: 12px;
+	} 
+.tablerow03{
+	color: yellow; background-color: #c48648; font-weight: bold; font-size: 11px; text-decoration:underline;
+	} 
+.tablerow04{
+	color: white; background-color: #c48648; font-weight: bold; font-size: 11px;
+	} 	
+.tablerow05{
+	color:white; background-color:#c48648; font-weight:bold; padding:6px; overflow:auto; clear:both; width:59%;margin:0 10%;
+	} 	
+.tablerow0{
+	color: white; background-color: #c48648; font-weight: bold; font-size: 11px;
+	} 
+.tablerow1{
+	color: #000000; background-color: #FFFFFF;
+	}
+.tablerow2{
+	color: #000000; background-color: #E6E6E6;
+	}
+.tablerow3{
+	color: #000000; background-color: #CCCCCC;
+	}
+.tablerow4{ 
+	color: #000000; background-color: #999999;
+	}
+.tablerow5{ 
+	color: #000000; background-color: #99FFCC;
+}
+.td{
+	visibility: hidden;
+	}
+	
+.td1{
+	color: #fff; background-color: #c48648; font-weight: bold;
+	}
+/*  to set title of page */
+.title{ 
+	color: white; background-color: #165367; 
+	text-align: left; font-weight: bold; 
+	font-size: Medium;
+	}
+/*  to set fonttype of all pages */
+.fonttype{
+	font-family: Arial;
+	}
+.fonttype2{ 
+	font-family: Arial; 
+	font-size:9px;
+	}
+.fonttype3{
+	font-family: Arial;
+	font-size:12px;
+	}
+.font{
+	background-color: #045c97;
+	color:#FFF
+	}
+.bold{
+	color:#000;
+	font-size:12px;
+	font-weight:bolder;
+	}
+.home{
+	color:#000;
+	font-size:14px;
+	font-weight:bolder;
+	}
+.home2{
+	color:#000;
+	font-size:15px;
+	font-weight:bolder;
+	}
+.time{
+	border:none;
+	background:none; 
+	color:#000;
+	font-weight:bold;
+	}
+.breadcrumbs{
+	font-size:10px;
+	}
+.breadtitle{
+	font-size:11px;
+	font-weight:bold;
+	}
+.demo{
+	background-color:#3F3;
+	}
+.warning{
+ 	color:#F00; 
+ 	font-size:11px; 
+ 	font-weight:bold;
+ 	}
+
+
+/*-----------------------------------------------------------------------*/
+.glossymenu{
+	position: relative;
+	padding: 0 0 0 40px;
+	margin: 0 auto 0 auto;
+	background: url('../../images/menub_bg.gif') repeat-x; /*tab background image path*/
+	height: 46px;
+	list-style: none;
+}
+
+.glossymenu li{
+	float:left;
+}
+
+.glossymenu li a{
+	float: left;
+	display: block;
+	color:#000;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	padding:0 0 0 16px; /*Padding to accomodate left tab image. Do not change*/
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	cursor: pointer;	
+}
+
+.glossymenu li a b{
+	float: left;
+	display: block;
+	padding: 0 24px 0 8px; /*Padding of menu items*/
+}
+
+.glossymenu li.current a, .glossymenu li a:hover{
+	color: #fff;
+	background: url('../../images/menub_hover_left.gif') no-repeat; /*left tab image path*/
+	background-position: left;
+}
+
+.glossymenu li.current a b, .glossymenu li a:hover b{
+	color: #fff;
+	background: url('../../images/menub_hover_right.gif') no-repeat right top; /*right tab image path*/
+}
+

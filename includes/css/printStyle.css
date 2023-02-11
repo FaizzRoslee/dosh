@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+Body
+{
+    FONT-SIZE: 10pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: white;
+}
+.navStuff
+{
+    DISPLAY: none;
+}
+a:after
+{
+	content:' [' attr(href) '] '
+}			

@@ -1,0 +1,136 @@
+<?php
+	/**************************************************************************************
+		File name		:		func_utilities.php
+		Return			:		string with id in bracket e.g ('','')
+		Date created	:		20 April 2006
+		Last modify		:		20 April 2006
+		Description		:		func_utilities function to provide utilities for system used
+	***************************************************************************************/
+
+
+	function func_left_menu($title='',$url='',$menu='',$int_menu='',$class='',$type=0) {
+		global $sys_config;
+		global $mod_config;
+		
+		$str_menu	=	"<tr>\n";
+		
+		$str_menu	.=	"<td background=\""
+					.	$sys_config['images_path']."design/pq_"
+					.	(($int_menu==$menu)? "34" : "28").".gif\">"
+					.	"<img src=\"".$sys_config['images_path']."design/pq_"
+					.	(($int_menu==$menu)? "33" : "27").".gif\" width=\"12\" height=\"22\" alt=\"\" >"
+					.	"</td>\n";
+		$str_menu	.=	"<td background=\"".$sys_config['images_path']."design/pq_"
+					.	(($int_menu==$menu)? "34" : "28").".gif\" class=\"".$class."\">";
+		if ($type == 0)
+		{
+			$str_menu	.=	"<a href=\"#\" style=\"color:#fff;\" onclick=\"javascript:redirect_to_content('"
+						.	$url."','".$sys_config['frame_path']."left_".$mod_config['module_name'].".php?menu=".$menu."');\">";
+		}		
+		$str_menu	.=	$title
+					.	"</a>"
+					.	"</td>\n";
+		$str_menu 	.=	"<td background=\"".$sys_config['images_path']."design/pq_"
+					.	(($int_menu==$menu)? "34" : "28").".gif\" align=\"right\">"
+					.	"<img src=\"".$sys_config['images_path']."design/pq_"
+					.	(($int_menu==$menu)? "35" : "29").".gif\" width=\"12\" height=\"22\" alt=\"\" >"
+					.	"</td>\n";
+		$str_menu	.=	"</tr>\n";
+		
+		return $str_menu;
+	}	
+	
+	function func_left_menu2($title='',$url='',$menu='',$int_menu='',$header=0) {
+		global $sys_config,$mod_config;
+		
+		$str_menu	= "<li><a href=\"#\"";
+		if($header==0){
+			$str_menu	.= " onclick=\"javascript:redirect_to_content('".$url."','".$mod_config['self']."&menu=".$menu."');\""
+						. " ".(($int_menu==$menu)? " class=\"active\" " : ""). "";
+		}else{
+			$str_menu	.= " class=\"title\"";
+		}
+		$str_menu	.=	" >".$title."</a></li>";
+		
+		return $str_menu;
+	}
+	//==================================
+	
+	function func_get_total_page($str_sql = '')		{
+		global $db;
+				
+		$res_total = $db->sql_query($str_sql,END_TRANSACTION) or die(print_r($db->sql_error()));
+		$row_total = $db->sql_fetchrow($res_total);
+		$int_total_rows = $db->sql_numrows($res_total);		// get total rows
+		return $int_total_rows;
+	}
+
+
+	function is_valid_email($address)	{ // email validation
+		// check an email address is possibly valid
+		if (ereg('^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$', $address))
+			return true;
+		else 
+			return false;
+	}
+	
+
+	function func_table_info($str_info = '')	{ 
+
+		echo "<table class=\"contents\" width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"5\">\n";
+		echo "\t<tr class=\"contents\">\n";
+	  	echo "\t\t<td valign=\"middle\" class=\"label1\">". stripslashes($str_info)."</td>\n";
+	  	echo "\t</tr>\n";
+	 	echo "</table>\n";
+		
+	}
+		
+	function string_wordml_escape($str_escape='') {
+		if(!empty($str_escape)) {
+			$str_escape = str_replace("&", '&amp;', $str_escape);
+			$str_escape = str_replace("<", '&lt;', $str_escape);
+			$str_escape = str_replace(">", '&gt;', $str_escape);
+		}
+		return $str_escape;
+	}	
+
+	function dateDiff($dformat, $endDate, $beginDate) {
+		$date_parts1=explode($dformat, $beginDate);
+		$date_parts2=explode($dformat, $endDate);
+		$start_date=gregoriantojd($date_parts1[1], $date_parts1[0], $date_parts1[2]);
+		$end_date=gregoriantojd($date_parts2[1], $date_parts2[0], $date_parts2[2]);
+		return $end_date - $start_date;
+	}
+	
+	function dateAdd($dFormat,$date,$int_inc)
+	{
+		$date_parts1 = explode($dFormat, $date);
+		
+		$new_date	=	$date_parts1[2]."-".$date_parts1[1]."-".$date_parts1[0];
+		
+		return (date('d-m-Y', strtotime($new_date.' +'.$int_inc.' days'))); 
+	}
+	
+	function func_get_color($int_diff,$int_status) {
+		if ($int_diff < 0) {
+			$int_diff = $int_diff * (-1);
+			
+			if ($int_status == 0) {
+				if ($int_diff <= 3)
+					return "contents_late_3_days";
+				elseif ($int_diff > 3 && $int_diff <= 7)
+					return "contents_late_7_days";
+				elseif ($int_diff > 7)
+					return "contents_late_over_7_days";
+				else
+					return "contents";
+			}
+			else
+				return "contents";
+		}
+		else
+		{
+			return "contents";
+		}
+	}
+?>

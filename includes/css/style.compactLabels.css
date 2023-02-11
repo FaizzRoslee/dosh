@@ -1,0 +1,82 @@
+.compactlabel-wrapper {
+	display: inline-block;
+	position: relative;
+}
+
+.compactlabel-wrapper-on {
+	z-index: 5;
+}
+
+.compactlabel-wrapper label {
+	position: absolute;
+	z-index: 4;
+}
+
+.compactlabel-wrapper label.compactlabel-hide {
+	z-index: 2;
+}
+
+.compactlabel-wrapper input[type=text],input[type=password] {
+	position: relative;
+	z-index: 3;
+}
+
+.compactlabel-label-backing {
+	position: absolute;
+	z-index: 1;
+}
+
+/* personalized styles */
+.compactlabel-label-backing {
+	padding: 2px 3px 4px 3px;
+	border-style: solid;
+	border-width: 2px 2px 0 2px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	background-color: #e0e0e0;
+	-webkit-transition: 1s background-color;
+	
+}
+
+.compactlabel-wrapper label {
+	font-family: "Lucida Sans Unicode", "Lucida Sans", "Lucida Grande", Arial, sans-serif;
+	color: #999;
+	padding: 4px;
+	font-size: 80%;
+	font-size: 12px;
+}
+
+
+.compactlabel-wrapper-on,
+.compactlabel-wrapper-on .compactlabel-label-backing {
+	-moz-box-shadow: SkyBlue 0 0 5px;
+	-webkit-box-shadow: SkyBlue 0 0 5px;
+	box-shadow: SkyBlue 0 0 5px;
+}
+
+input[type=text],input[type=password] {
+	padding: 3px;
+	margin: 0;
+	border: solid #ddd 2px;
+	background-color: #e0e0e0;
+	font-family: "Lucida Sans Unicode", "Lucida Sans", "Lucida Grande", Arial, sans-serif;
+	font-size: 12px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	border-radius: 1px;
+	background-image: -moz-linear-gradient( 270deg, rgba(255,255,255,0), rgba(100,100,100,.15)  );
+	-webkit-transition: 1s background-color, 1s border-color;
+}
+
+input[type=text],input[type=password] {
+	background-image: -webkit-gradient(linear, left bottom, left top, to(rgba(255,255,255,0)), from(rgba(100,100,100,.15)));
+	outline: none;
+}
+
+input[type=text],input[type=password]:hover,
+input[type=text],input[type=password]:focus,
+.compactlabel-wrapper-on input[type=text],input[type=password],
+.compactlabel-wrapper-on .compactlabel-label-backing {
+	background-color: #fff;
+	border-color: #fff;
+}
